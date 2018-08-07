@@ -24,7 +24,7 @@ Roxygen: list(markdown = TRUE)
 Imports:
     assertthat,
     crayon,
-    ps,
+    ps (>= 1.0.0.9000),
     R6,
     utils
 Suggests:
@@ -34,4 +34,6 @@ Suggests:
     parallel,
     testthat,
     withr
+Remotes:
+    r-lib/ps@feature/testthat-open-connections
 Encoding: UTF-8
