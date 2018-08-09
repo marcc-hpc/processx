@@ -24,7 +24,7 @@
 * New `env` argument in `run()` and `process$new()`, to set the
   environment of the child process, optionally (#117, #118).
 
-* Removed the `$restart()` method, because it was less useful than
+* Remove `$restart()` method, because it was less useful than
   expected, and hard to maintain (#116).
 
 * New `conn_set_stdout()` and `conn_set_stderr()` to set the standard
@@ -34,14 +34,14 @@
   suggested that child processes call this immediately after starting, so
   the file handles are not inherited further.
 
+* When `run()` is interrupted, no error message is printed, just like
+  for interruption of R code in general. The thrown condition now also
+  has the `interrupt` class (#148).
+
 * Fixed a signal handler bug on Unix that marked the process as finished,
   even if it has not (d221aa1f).
 
 * Fixed a bug that occasionally caused crashes in `wait()`, on Unix (#138).
-
-* When `run()` is interrupted, no error message is printed, just like
-  for interruption of R code in general. The thrown condition now also
-  has the `interrupt` class (#148).
 
 # processx 3.1.0
 
