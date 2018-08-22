@@ -146,7 +146,8 @@ void kill_children() {
         return;
 
     verbose_printf("Sending close signal to children: ");
-    for (int i=0; i<n_children; i++) {
+    int i;
+    for (i=0; i<n_children; i++) {
         verbose_printf("%d ", children[i]);
 
         #ifdef WIN32
@@ -168,7 +169,8 @@ void kill_children() {
         sleep_ms(POLL_MS);
 
         verbose_printf("Checking status of children: ");
-        for (int i=0; i<n_children; i++) {
+        int i;
+        for (i=0; i<n_children; i++) {
             if (pid_is_running(children[i])) {
                 verbose_printf("%d ", children[i]);
             } else {
@@ -187,7 +189,8 @@ void kill_children() {
     // Hard-kill any remaining processes
     bool kill_message_shown = false;
 
-    for (int i=0; i<n_children; i++) {
+    int i;
+    for (i=0; i<n_children; i++) {
         if (pid_is_running(children[i])) {
 
             if (!kill_message_shown) {
@@ -237,7 +240,8 @@ int main(int argc, char **argv) {
 
     // Process arguments ------------------------------------------------------
     if (argc >= 2) {
-        for (int i=1; i<argc; i++) {
+        int i;
+        for (i=1; i<argc; i++) {
             if (strcmp(argv[i], "-v") == 0) {
                 verbose_mode = true;
 
@@ -416,7 +420,8 @@ int main(int argc, char **argv) {
             } else if (pid < 0) {
                 // Remove pids that start with '-'
                 pid = -pid;
-                for (int i=0; i<n_children; i++) {
+                int i;
+                for (i=0; i<n_children; i++) {
                     if (children[i] == pid) {
                         verbose_printf("Removing:%d\n", pid);
                         n_children = remove_element(children, n_children, i);
@@ -428,7 +433,8 @@ int main(int argc, char **argv) {
 
         // Remove any children from list that are no longer running.
         verbose_printf("Children: ");
-        for (int i=0; i<n_children; i++) {
+        int i;
+        for (i=0; i<n_children; i++) {
             if (pid_is_running(children[i])) {
                 verbose_printf("%d ", children[i]);
             } else {
