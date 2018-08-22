@@ -37,7 +37,8 @@ int remove_element(int* ar, int len, int idx) {
 
 
 bool array_contains(int* ar, int len, int value) {
-    for (int i=0; i<len; i++) {
+    int i;
+    for (i=0; i<len; i++) {
         if (ar[i] == value)
             return true;
     }
