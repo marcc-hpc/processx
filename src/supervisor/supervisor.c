@@ -189,7 +189,6 @@ void kill_children() {
     // Hard-kill any remaining processes
     bool kill_message_shown = false;
 
-    int i;
     for (i=0; i<n_children; i++) {
         if (pid_is_running(children[i])) {
 
